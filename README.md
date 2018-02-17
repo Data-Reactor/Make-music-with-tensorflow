@@ -57,6 +57,8 @@ source activate magenta
 
 #### 建立旋律集
 进入你git clone 得到的magenta文件夹，建立一个名为```notesequences.tfrecord```的空白文件
+路径里不要有空格！
+等号两端千万不要有空格！
 ```
 convert_dir_to_note_sequences \
 --input_dir=/home/manyue/magenta/train/mid \　　　　
