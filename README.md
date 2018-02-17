@@ -58,9 +58,9 @@ source activate magenta
 #### 创建NoteSequences
 ```
 convert_dir_to_note_sequences \
- --input_dir=/home/manyue/magenta/train/mid \　　　　
- --output_file=/home/manyue/magenta/train/notesequences.tfrecord \　
- --recursive  
+--input_dir=/home/manyue/magenta/train/mid \　　　　
+--output_file=/home/manyue/magenta/train/notesequences.tfrecord \　
+--recursive  
 ```
 ```--input_dir```是存储.mid文件的文件夹地址，```--output_file```是```notesequences.tfrecord```的地址，把上面的换为你的存储地址即可
 
