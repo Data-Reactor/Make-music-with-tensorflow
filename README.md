@@ -54,9 +54,9 @@ bazel test //magenta/...
 ```
 source activate magenta
 ```
-进入你git clone 得到的magenta文件夹，建立一个名为```notesequences.tfrecord```的空白文件
 
 #### 建立旋律集
+进入你git clone 得到的magenta文件夹，建立一个名为```notesequences.tfrecord```的空白文件
 ```
 convert_dir_to_note_sequences \
 --input_dir=/home/manyue/magenta/train/mid \　　　　
@@ -113,7 +113,7 @@ melody_rnn_train \
 
 （上面用```--eval```这一步可能会报错，可跳过执行下一步）
 
-可以打开一个新终端并激活tensorflow```source activate tensorflow```
+打开一个新终端并激活tensorflow```source activate tensorflow```
 
 输入```tensorboard --logdir=/home/manyue/magenta/train```
 
