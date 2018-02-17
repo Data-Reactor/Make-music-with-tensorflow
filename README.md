@@ -67,6 +67,7 @@ convert_dir_to_note_sequences \
 
 记得前面的```--```和后面的反斜杠```\```哦！
 
+
 #### 创建SequenceExamples
 建立一个名为```SequenceExamples```的空白文件夹，下面的代码运行外之后，```SequenceExamples```里会生成两个文件：```training_melodies.tfrecord ```和```eval_melodies.tfrecord ```
 ```
@@ -104,7 +105,9 @@ melody_rnn_train \
 ```
 ```--config``` ```--run_dir``` ```--hparams``` ```--num_training_steps```的参数和之前一样，```--sequence_example_file```这一项把最后的文件改为```eval_melodies.tfrecord```,最后加上```--eval```
 
-再打开一个新终端并激活tensorflow```source activate tensorflow```
+（上面用```--eval```这一步可能会报错，可跳过执行下一步）
+
+可以打开一个新终端并激活tensorflow```source activate tensorflow```
 
 输入```tensorboard --logdir=/home/manyue/magenta/train```
 
