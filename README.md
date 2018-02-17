@@ -1,4 +1,5 @@
 Google的[Magenta项目](https://github.com/tensorflow/magenta)用tensorflow让神经网络作曲，让我们来尝试用一下吧！
+##### 在 Ubuntu16.04LTS 测试通过
 ## 步骤
 ### 第一步 安装magent
 #### 自动安装
