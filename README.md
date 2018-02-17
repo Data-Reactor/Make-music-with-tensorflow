@@ -67,7 +67,7 @@ convert_dir_to_note_sequences \
 记得前面的```--```和后面的反斜杠```\```
 
 #### 创建SequenceExamples
-建立一个名为```SequenceExamples```的空白文件夹
+建立一个名为```SequenceExamples```的空白文件夹，下面的代码运行外之后，```SequenceExamples```里会生成两个文件：```training_melodies.tfrecord ``````eval_melodies.tfrecord ```
 ```
 melody_rnn_create_dataset \
 --config=lookback_rnn \
@@ -86,4 +86,4 @@ melody_rnn_train \
 --hparams="batch_size=64,rnn_layer_sizes=[64,64]" \
 --num_training_steps=1000 
 ```
-```--run_dir```是```run1```文件夹的地址，
+```--run_dir```是```run1```文件夹的地址，```--sequence_example_file```是上一步生成的文件```training_melodies.tfrecord```的地址
