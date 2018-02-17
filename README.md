@@ -64,7 +64,7 @@ convert_dir_to_note_sequences \
 ```
 ```--input_dir```是存储.mid文件的文件夹地址，```--output_file```是```notesequences.tfrecord```的地址，把上面的换为你的存储地址即可
 
-记得前面的```--```和后面的反斜杠```\```
+记得前面的```--```和后面的反斜杠```\```哦！
 
 #### 创建SequenceExamples
 建立一个名为```SequenceExamples```的空白文件夹，下面的代码运行外之后，```SequenceExamples```里会生成两个文件：```training_melodies.tfrecord ``````eval_melodies.tfrecord ```
@@ -87,3 +87,45 @@ melody_rnn_train \
 --num_training_steps=1000 
 ```
 ```--run_dir```是```run1```文件夹的地址，```--sequence_example_file```是上一步生成的文件```training_melodies.tfrecord```的地址
+```--num_training_steps```是训练次数，可以自行设置
+
+在这一步，你可以选择是否要测试模型训练的情况，如果需要，执行下面的步骤
+
+在运行上面的代码的同时，打开一个新终端，记得先输入```source activate magenta```激活magenta
+```
+melody_rnn_train \
+--config=lookback_rnn \
+--run_dir=/home/manyue/magenta/train/run1 \
+--sequence_example_file=/home/manyue/magenta/train/SequenceExamples/eval_melodies.tfrecord \
+--hparams="batch_size=64,rnn_layer_sizes=[64,64]" \
+--num_training_steps=1000 \
+--eval
+```
+```--config``````--run_dir``````--hparams``````--num_training_steps```的参数和之前一样，```--sequence_example_file```这一项把最后的文件改为```eval_melodies.tfrecord```,最后加上```--eval```
+
+再打开一个新终端并激活tensorflow```source activate tensorflow```
+
+输入```tensorboard --logdir=/home/manyue/magenta/train```
+
+```--logdir```是包含```run1```的文件夹的地址
+
+#### 生成旋律
+建立一个文件夹存储输出旋律，这里我命名为```output_music```
+```
+melody_rnn_generate \
+--config=lookback_rnn \
+--run_dir=/home/manyue/magenta/train/run1 \
+--output_dir=/home/manyue/magenta/train/output_music \
+--num_outputs=10 \
+--num_steps=128 \
+--hparams="batch_size=64,rnn_layer_sizes=[64,64]" \
+--primer_melody="[60]"
+```
+```num_outputs```是生成旋律片段的个数，可以自行设置
+
+#### 你可以播放生成的.mid文件啦！
+进入存储输出旋律的文件夹后，终端输入```timidity 2018-02-16_194511_01.mid```播放，```2018-02-16_194511_01.mid```是生成旋律的名称
+
+如果没有安装```timidity```可以用```sudo apt-get install timidity```安装
+
+也可以把.mid转成.mp3后播放，可以使用格式大师等软件进行转换
