@@ -67,7 +67,7 @@ convert_dir_to_note_sequences \
 记得前面的```--```和后面的反斜杠```\```哦！
 
 #### 创建SequenceExamples
-建立一个名为```SequenceExamples```的空白文件夹，下面的代码运行外之后，```SequenceExamples```里会生成两个文件：```training_melodies.tfrecord ``````eval_melodies.tfrecord ```
+建立一个名为```SequenceExamples```的空白文件夹，下面的代码运行外之后，```SequenceExamples```里会生成两个文件：```training_melodies.tfrecord ```和```eval_melodies.tfrecord ```
 ```
 melody_rnn_create_dataset \
 --config=lookback_rnn \
