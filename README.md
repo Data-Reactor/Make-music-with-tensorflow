@@ -56,7 +56,7 @@ source activate magenta
 ```
 进入你git clone 得到的magenta文件夹，建立一个名为```notesequences.tfrecord```的空白文件
 
-#### 创建NoteSequences
+#### 建立旋律集
 ```
 convert_dir_to_note_sequences \
 --input_dir=/home/manyue/magenta/train/mid \　　　　
@@ -67,8 +67,9 @@ convert_dir_to_note_sequences \
 
 记得前面的```--```和后面的反斜杠```\```哦！
 
+![Create NoteSequences](https://github.com/Data-Reactor/Make-music-with-tensorflow/blob/master/pics/Create%20NoteSequences)
 
-#### 创建SequenceExamples
+#### 提取旋律
 建立一个名为```SequenceExamples```的空白文件夹，下面的代码运行外之后，```SequenceExamples```里会生成两个文件：```training_melodies.tfrecord ```和```eval_melodies.tfrecord ```
 ```
 melody_rnn_create_dataset \
@@ -78,6 +79,9 @@ melody_rnn_create_dataset \
 --eval_ratio=0.10 
 ```
 ```--input```是```notesequences.tfrecord```的地址，```--output_dir```是```SequenceExamples```的地址，换为你的地址即可
+
+![Create SequenceExamples](https://github.com/Data-Reactor/Make-music-with-tensorflow/blob/master/pics/Create%20SequenceExamples)
+
 #### 训练模型
 创建一个名为```run1```的文件夹
 ```
@@ -90,6 +94,8 @@ melody_rnn_train \
 ```
 ```--run_dir```是```run1```文件夹的地址，```--sequence_example_file```是上一步生成的文件```training_melodies.tfrecord```的地址
 ```--num_training_steps```是训练次数，可以自行设置
+
+![Train the Model](https://github.com/Data-Reactor/Make-music-with-tensorflow/blob/master/pics/Train%20the%20Model)
 
 在这一步，你可以选择是否要测试模型训练的情况，如果需要，执行下面的步骤
 
@@ -114,6 +120,10 @@ melody_rnn_train \
 ```--logdir```是```run1```的地址
 
  到这里http://localhost:6006 查看结果 (运行之后会有提示，比如：```TensorBoard 1.5.1 at http://manyue-thinkpad-t450s:6006```)
+ 
+ ![Evaluate the Model](https://github.com/Data-Reactor/Make-music-with-tensorflow/blob/master/pics/%20Evaluate%20the%20Model)
+ 
+ ![TensorBoard](https://github.com/Data-Reactor/Make-music-with-tensorflow/blob/master/pics/TensorBoard)
 
 #### 生成旋律
 建立一个文件夹存储输出旋律，这里我命名为```output_music```
@@ -129,9 +139,13 @@ melody_rnn_generate \
 ```
 ```num_outputs```是生成旋律片段的个数，可以自行设置
 
+![Generate Melodies](https://github.com/Data-Reactor/Make-music-with-tensorflow/blob/master/pics/Generate%20Melodies)
+
 #### 你可以播放生成的.mid文件啦！
 进入存储输出旋律的文件夹后，终端输入```timidity 2018-02-16_194511_01.mid```播放，```2018-02-16_194511_01.mid```是生成旋律的名称
 
 如果没有安装```timidity```可以用```sudo apt-get install timidity```安装
+
+![timidity](https://github.com/Data-Reactor/Make-music-with-tensorflow/blob/master/pics/timidity)
 
 也可以把.mid转成.mp3后播放，可以使用格式大师等软件进行转换
