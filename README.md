@@ -107,7 +107,7 @@ melody_rnn_train \
 
 输入```tensorboard --logdir=/home/manyue/magenta/train```
 
-```--logdir```是包含```run1```的文件夹的地址
+```--logdir```是```run1```的地址
 
 #### 生成旋律
 建立一个文件夹存储输出旋律，这里我命名为```output_music```
