@@ -101,7 +101,7 @@ melody_rnn_train \
 --num_training_steps=1000 \
 --eval
 ```
-```--config``````--run_dir``````--hparams``````--num_training_steps```的参数和之前一样，```--sequence_example_file```这一项把最后的文件改为```eval_melodies.tfrecord```,最后加上```--eval```
+```--config``` ```--run_dir``` ```--hparams``` ```--num_training_steps```的参数和之前一样，```--sequence_example_file```这一项把最后的文件改为```eval_melodies.tfrecord```,最后加上```--eval```
 
 再打开一个新终端并激活tensorflow```source activate tensorflow```
 
