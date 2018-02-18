@@ -151,4 +151,4 @@ melody_rnn_generate \
 
 ![timidity](https://github.com/Data-Reactor/Make-music-with-tensorflow/blob/master/pics/timidity)
 
-也可以把.mid转成.mp3后播放，可以使用格式大师等软件进行转换
+也可以把.mid转成.mp3后播放，可以使用格式工厂等软件进行转换
